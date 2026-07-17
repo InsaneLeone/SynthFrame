@@ -1,81 +1,324 @@
-// --- Configuration ---
-const int TOUCH_PIN = 4;        // GPIO 4 (Touch Channel 0)
-const int TOUCH_THRESHOLD = 10; // Lower values = touched. Adjust based on your Serial Monitor.
+#include <WiFi.h>
+#include <WebServer.h>
 
-// --- Timing Constants (Milliseconds) ---
-const unsigned long DEBOUNCE_TIME = 30;    // Filter out signal noise
-const unsigned long LONG_PRESS_TIME = 600; // Time held down to qualify as a long press
-const unsigned long DOUBLE_TAP_GAP = 300;  // Maximum time window between two taps
+// ---------- ESP32 Access Point ----------
+const char* ssid = "ESP32_Touch";
+const char* password = "12345678";
 
-// --- State Variables ---
-bool lastTouchState = false;       // Tracked state: false = released, true = touched
-unsigned long touchStartTime = 0;   // When the current touch event began
-unsigned long touchEndTime = 0;     // When the last touch event ended
-int tapCount = 0;                  // Counter for multiple taps
-bool waitingForDoubleTap = false;  // Timing window status
+WebServer server(80);
 
-void setup() {
-  Serial.begin(115200);
-  delay(1000);
-  Serial.println("--- ELEGOO ESP32 Touch Gesture Detector ---");
-  Serial.print("Initial Baseline Value: ");
-  Serial.println(touchRead(TOUCH_PIN));
+
+// ---------- Touch ----------
+const int TOUCH_PIN = 4;
+int TOUCH_THRESHOLD = 10;
+
+int rawTouch = 0;
+bool currentTouchState = false;
+bool lastTouchState = false;
+
+
+// ---------- Gesture Timing ----------
+const unsigned long DEBOUNCE_TIME = 30;
+const unsigned long LONG_PRESS_TIME = 600;
+const unsigned long DOUBLE_TAP_GAP = 300;
+
+
+unsigned long touchStartTime = 0;
+unsigned long touchEndTime = 0;
+
+int tapCount = 0;
+bool waitingForDoubleTap = false;
+
+String lastGesture = "None";
+
+
+// ---------- Web Page ----------
+String webpage()
+{
+return R"rawliteral(
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+ font-family: Arial;
+ text-align:center;
+ margin-top:40px;
 }
 
-void loop() {
-  // 1. Read and smooth the sensor state
-  int rawTouch = touchRead(TOUCH_PIN);
-  Serial.println(rawTouch);
-  bool currentTouchState = (rawTouch < TOUCH_THRESHOLD);
-  unsigned long currentMillis = millis();
+.value {
+ font-size:50px;
+ font-weight:bold;
+}
 
-  // 2. Detect Edge Changes (State transitions)
-  if (currentTouchState != lastTouchState) {
-    delay(DEBOUNCE_TIME); // Basic software debounce to confirm state change
-    
-    if (currentTouchState) {
-      // --- PIN JUST TOUCHED ---
-      touchStartTime = currentMillis;
-    } else {
-      // --- PIN JUST RELEASED ---
-      touchEndTime = currentMillis;
-      unsigned long pressDuration = touchEndTime - touchStartTime;
+input,button {
+ font-size:22px;
+ padding:8px;
+}
+</style>
 
-      // Filter out accidental micro-touches
-      if (pressDuration > DEBOUNCE_TIME) {
-        if (pressDuration >= LONG_PRESS_TIME) {
-          // It was a long press, clear any pending double-tap tracking
-          Serial.println("Gesture Captured: [ LONG PRESS ]");
-          tapCount = 0;
-          waitingForDoubleTap = false;
-        } else {
-          // It was a short tap, log it for double-tap evaluation
-          tapCount++;
-          if (!waitingForDoubleTap) {
-            waitingForDoubleTap = true;
-            touchStartTime = currentMillis; // Re-use as the window timer start
-          }
+</head>
+
+
+<body>
+
+<h1>ESP32 Touch Gesture</h1>
+
+<p>Raw Touch</p>
+<div class="value" id="raw">---</div>
+
+
+<p>Threshold</p>
+
+<input id="threshold" type="number" value="10">
+<button onclick="setThreshold()">Set</button>
+
+
+<h2 id="state">---</h2>
+
+<h2 id="gesture">---</h2>
+
+
+
+<script>
+
+function update()
+{
+ fetch("/status")
+ .then(r=>r.json())
+ .then(data=>{
+
+ document.getElementById("raw").innerHTML=data.raw;
+
+ document.getElementById("state").innerHTML =
+ data.touch ? "TOUCHED" : "RELEASED";
+
+ document.getElementById("gesture").innerHTML =
+ "Gesture: " + data.gesture;
+
+
+ document.getElementById("threshold").value=data.threshold;
+
+ });
+
+}
+
+
+
+function setThreshold()
+{
+ let val=document.getElementById("threshold").value;
+
+ fetch("/threshold?value="+val);
+}
+
+
+
+setInterval(update,100);
+
+
+</script>
+
+
+</body>
+</html>
+
+)rawliteral";
+}
+
+
+
+// ---------- Web Handlers ----------
+
+void root()
+{
+ server.send(200,"text/html",webpage());
+}
+
+
+
+void status()
+{
+ rawTouch = touchRead(TOUCH_PIN);
+
+ String json="{";
+
+ json += "\"raw\":"+String(rawTouch)+",";
+ json += "\"threshold\":"+String(TOUCH_THRESHOLD)+",";
+ json += "\"touch\":"+String(currentTouchState)+",";
+ json += "\"gesture\":\""+lastGesture+"\"";
+
+ json += "}";
+
+
+ server.send(200,"application/json",json);
+}
+
+
+
+
+void threshold()
+{
+ if(server.hasArg("value"))
+ {
+  TOUCH_THRESHOLD = server.arg("value").toInt();
+
+  Serial.print("New threshold: ");
+  Serial.println(TOUCH_THRESHOLD);
+ }
+
+ server.send(200,"text/plain","OK");
+}
+
+
+
+
+// ---------- Gesture Detection ----------
+
+void detectGesture()
+{
+ unsigned long now = millis();
+
+
+ rawTouch = touchRead(TOUCH_PIN);
+
+ currentTouchState = rawTouch < TOUCH_THRESHOLD;
+
+
+
+ // Detect state change
+ if(currentTouchState != lastTouchState)
+ {
+
+  delay(DEBOUNCE_TIME);
+
+
+  if(currentTouchState)
+  {
+    // Touch started
+    touchStartTime = now;
+  }
+
+
+  else
+  {
+    // Touch released
+
+    touchEndTime = now;
+
+    unsigned long duration =
+      touchEndTime - touchStartTime;
+
+
+    if(duration > DEBOUNCE_TIME)
+    {
+
+      if(duration >= LONG_PRESS_TIME)
+      {
+        lastGesture = "LONG PRESS";
+
+        tapCount=0;
+        waitingForDoubleTap=false;
+      }
+
+
+      else
+      {
+        tapCount++;
+
+        if(!waitingForDoubleTap)
+        {
+          waitingForDoubleTap=true;
         }
       }
+
     }
-    lastTouchState = currentTouchState;
+
   }
 
-  // 3. Evaluate Tap Window (When user is NOT currently holding the pin)
-  if (waitingForDoubleTap && !currentTouchState) {
-    if (currentMillis - touchEndTime > DOUBLE_TAP_GAP) {
-      // Time window closed! Evaluate how many taps happened
-      if (tapCount >= 2) {
-        Serial.print("Gesture Captured: [ DOUBLE TAP ] -> Total Taps: ");
-        Serial.println(tapCount);
-      } else if (tapCount == 1) {
-        Serial.println("Gesture Captured: [ SHORT PRESS ]");
-      }
-      
-      // Reset counters for the next event
-      tapCount = 0;
-      waitingForDoubleTap = false;
+
+  lastTouchState=currentTouchState;
+
+ }
+
+
+
+ // Check double tap timeout
+
+ if(waitingForDoubleTap && !currentTouchState)
+ {
+
+  if(now-touchEndTime > DOUBLE_TAP_GAP)
+  {
+
+    if(tapCount>=2)
+    {
+      lastGesture="DOUBLE TAP";
     }
+
+    else if(tapCount==1)
+    {
+      lastGesture="SHORT PRESS";
+    }
+
+
+    tapCount=0;
+    waitingForDoubleTap=false;
+
   }
-  delay(500);
+
+ }
+
+}
+
+
+
+
+
+// ---------- Setup ----------
+
+void setup()
+{
+
+ Serial.begin(115200);
+
+
+ WiFi.softAP(ssid,password);
+
+
+ Serial.println("ESP32 Access Point Started");
+ Serial.print("IP Address: ");
+ Serial.println(WiFi.softAPIP());
+
+
+
+ server.on("/",root);
+ server.on("/status",status);
+ server.on("/threshold",threshold);
+
+
+ server.begin();
+
+
+ Serial.println("Web server running");
+
+}
+
+
+
+
+
+// ---------- Loop ----------
+
+void loop()
+{
+
+ server.handleClient();
+
+
+ detectGesture();
+
 }
