@@ -10,11 +10,22 @@ WebServer server(80);
 
 // ---------- Touch ----------
 const int TOUCH_PIN = 4;
+
 int TOUCH_THRESHOLD = 10;
 
 int rawTouch = 0;
 bool currentTouchState = false;
 bool lastTouchState = false;
+
+
+// ---------- DAC ----------
+const int DAC_PIN = 25;
+
+float dacVoltage = 0.0;
+float voltageTrim = 0.25;     // Default trim amount
+
+int dacValue = 0;
+
 
 
 // ---------- Gesture Timing ----------
@@ -32,42 +43,66 @@ bool waitingForDoubleTap = false;
 String lastGesture = "None";
 
 
+
+// ---------- DAC Function ----------
+
+void updateDAC()
+{
+  // Convert 0-3.3V to 0-255
+  dacValue = (dacVoltage / 3.3) * 255.0;
+
+  dacValue = constrain(dacValue,0,255);
+
+  dacWrite(DAC_PIN,dacValue);
+}
+
+
+
 // ---------- Web Page ----------
+
 String webpage()
 {
+
 return R"rawliteral(
+
 <!DOCTYPE html>
 <html>
 
 <head>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+
 body {
- font-family: Arial;
- text-align:center;
- margin-top:40px;
+font-family:Arial;
+text-align:center;
+margin-top:40px;
 }
 
 .value {
- font-size:50px;
- font-weight:bold;
+font-size:45px;
+font-weight:bold;
 }
 
 input,button {
- font-size:22px;
- padding:8px;
+font-size:22px;
+padding:8px;
 }
+
 </style>
 
 </head>
 
 
+
 <body>
 
-<h1>ESP32 Touch Gesture</h1>
 
-<p>Raw Touch</p>
+<h1>ESP32 Touch DAC Controller</h1>
+
+
+<p>Touch Reading</p>
 <div class="value" id="raw">---</div>
 
 
@@ -77,6 +112,15 @@ input,button {
 <button onclick="setThreshold()">Set</button>
 
 
+<p>Voltage Trim (V)</p>
+
+<input id="trim" type="number" step="0.01" value="0.25">
+<button onclick="setTrim()">Set</button>
+
+
+
+<h2 id="voltage">Voltage: ---</h2>
+
 <h2 id="state">---</h2>
 
 <h2 id="gesture">---</h2>
@@ -85,35 +129,67 @@ input,button {
 
 <script>
 
+
 function update()
 {
- fetch("/status")
- .then(r=>r.json())
- .then(data=>{
 
- document.getElementById("raw").innerHTML=data.raw;
+fetch("/status")
 
- document.getElementById("state").innerHTML =
- data.touch ? "TOUCHED" : "RELEASED";
+.then(r=>r.json())
 
- document.getElementById("gesture").innerHTML =
- "Gesture: " + data.gesture;
+.then(data=>{
 
 
- document.getElementById("threshold").value=data.threshold;
+document.getElementById("raw").innerHTML=data.raw;
 
- });
+
+document.getElementById("state").innerHTML =
+data.touch ? "TOUCHED":"RELEASED";
+
+
+document.getElementById("gesture").innerHTML =
+"Gesture: "+data.gesture;
+
+
+document.getElementById("voltage").innerHTML =
+"Voltage: "+data.voltage+" V";
+
+
+if (document.activeElement.id !== "threshold")
+{
+  document.getElementById("threshold").value=data.threshold;
+}
+
+
+if (document.activeElement.id !== "trim")
+{
+  document.getElementById("trim").value=data.trim;
+}
+
+
+});
 
 }
+
 
 
 
 function setThreshold()
 {
- let val=document.getElementById("threshold").value;
+let val=document.getElementById("threshold").value;
 
- fetch("/threshold?value="+val);
+fetch("/threshold?value="+val);
 }
+
+
+
+function setTrim()
+{
+let val=document.getElementById("trim").value;
+
+fetch("/trim?value="+val);
+}
+
 
 
 
@@ -126,35 +202,51 @@ setInterval(update,100);
 </body>
 </html>
 
+
 )rawliteral";
+
 }
+
+
 
 
 
 // ---------- Web Handlers ----------
 
+
 void root()
 {
- server.send(200,"text/html",webpage());
+server.send(200,"text/html",webpage());
 }
 
 
 
 void status()
 {
- rawTouch = touchRead(TOUCH_PIN);
 
- String json="{";
-
- json += "\"raw\":"+String(rawTouch)+",";
- json += "\"threshold\":"+String(TOUCH_THRESHOLD)+",";
- json += "\"touch\":"+String(currentTouchState)+",";
- json += "\"gesture\":\""+lastGesture+"\"";
-
- json += "}";
+rawTouch = touchRead(TOUCH_PIN);
 
 
- server.send(200,"application/json",json);
+String json="{";
+
+json += "\"raw\":"+String(rawTouch)+",";
+
+json += "\"threshold\":"+String(TOUCH_THRESHOLD)+",";
+
+json += "\"trim\":"+String(voltageTrim)+",";
+
+json += "\"voltage\":"+String(dacVoltage,2)+",";
+
+json += "\"touch\":"+String(currentTouchState)+",";
+
+json += "\"gesture\":\""+lastGesture+"\"";
+
+
+json+="}";
+
+
+server.send(200,"application/json",json);
+
 }
 
 
@@ -162,115 +254,191 @@ void status()
 
 void threshold()
 {
- if(server.hasArg("value"))
- {
-  TOUCH_THRESHOLD = server.arg("value").toInt();
 
-  Serial.print("New threshold: ");
-  Serial.println(TOUCH_THRESHOLD);
- }
-
- server.send(200,"text/plain","OK");
+if(server.hasArg("value"))
+{
+TOUCH_THRESHOLD =
+server.arg("value").toInt();
 }
+
+server.send(200,"text/plain","OK");
+
+}
+
+
+
+
+void trimAmount()
+{
+
+if(server.hasArg("value"))
+{
+
+voltageTrim =
+server.arg("value").toFloat();
+
+
+Serial.print("Voltage trim: ");
+Serial.println(voltageTrim);
+
+}
+
+
+server.send(200,"text/plain","OK");
+
+}
+
 
 
 
 
 // ---------- Gesture Detection ----------
 
+
 void detectGesture()
 {
- unsigned long now = millis();
+
+unsigned long now = millis();
 
 
- rawTouch = touchRead(TOUCH_PIN);
+rawTouch = touchRead(TOUCH_PIN);
 
- currentTouchState = rawTouch < TOUCH_THRESHOLD;
-
-
-
- // Detect state change
- if(currentTouchState != lastTouchState)
- {
-
-  delay(DEBOUNCE_TIME);
-
-
-  if(currentTouchState)
-  {
-    // Touch started
-    touchStartTime = now;
-  }
-
-
-  else
-  {
-    // Touch released
-
-    touchEndTime = now;
-
-    unsigned long duration =
-      touchEndTime - touchStartTime;
-
-
-    if(duration > DEBOUNCE_TIME)
-    {
-
-      if(duration >= LONG_PRESS_TIME)
-      {
-        lastGesture = "LONG PRESS";
-
-        tapCount=0;
-        waitingForDoubleTap=false;
-      }
-
-
-      else
-      {
-        tapCount++;
-
-        if(!waitingForDoubleTap)
-        {
-          waitingForDoubleTap=true;
-        }
-      }
-
-    }
-
-  }
-
-
-  lastTouchState=currentTouchState;
-
- }
+currentTouchState =
+rawTouch < TOUCH_THRESHOLD;
 
 
 
- // Check double tap timeout
 
- if(waitingForDoubleTap && !currentTouchState)
- {
-
-  if(now-touchEndTime > DOUBLE_TAP_GAP)
-  {
-
-    if(tapCount>=2)
-    {
-      lastGesture="DOUBLE TAP";
-    }
-
-    else if(tapCount==1)
-    {
-      lastGesture="SHORT PRESS";
-    }
+if(currentTouchState != lastTouchState)
+{
 
 
-    tapCount=0;
-    waitingForDoubleTap=false;
+delay(DEBOUNCE_TIME);
 
-  }
 
- }
+
+if(currentTouchState)
+{
+
+touchStartTime = now;
+
+}
+
+
+
+else
+{
+
+touchEndTime = now;
+
+
+unsigned long duration =
+touchEndTime-touchStartTime;
+
+
+
+if(duration > DEBOUNCE_TIME)
+{
+
+
+if(duration >= LONG_PRESS_TIME)
+{
+
+lastGesture="LONG PRESS";
+
+tapCount=0;
+
+waitingForDoubleTap=false;
+
+}
+
+
+
+else
+{
+
+tapCount++;
+
+
+if(!waitingForDoubleTap)
+waitingForDoubleTap=true;
+
+
+}
+
+
+}
+
+
+}
+
+
+
+lastTouchState=currentTouchState;
+
+
+}
+
+
+
+
+
+if(waitingForDoubleTap && !currentTouchState)
+{
+
+
+if(now-touchEndTime > DOUBLE_TAP_GAP)
+{
+
+
+if(tapCount>=2)
+{
+
+lastGesture="DOUBLE TAP";
+
+
+// Increase voltage
+dacVoltage += voltageTrim;
+
+if(dacVoltage > 3.3)
+dacVoltage=3.3;
+
+updateDAC();
+
+}
+
+
+
+else if(tapCount==1)
+{
+
+lastGesture="SHORT PRESS";
+
+
+// Decrease voltage
+dacVoltage -= voltageTrim;
+
+
+if(dacVoltage < 0)
+dacVoltage=0;
+
+
+updateDAC();
+
+}
+
+
+
+tapCount=0;
+
+waitingForDoubleTap=false;
+
+
+}
+
+
+}
+
 
 }
 
@@ -280,30 +448,46 @@ void detectGesture()
 
 // ---------- Setup ----------
 
+
 void setup()
 {
 
- Serial.begin(115200);
+
+Serial.begin(115200);
 
 
- WiFi.softAP(ssid,password);
+// DAC starts at 0V
+
+dacVoltage=0;
+
+updateDAC();
 
 
- Serial.println("ESP32 Access Point Started");
- Serial.print("IP Address: ");
- Serial.println(WiFi.softAPIP());
+
+WiFi.softAP(ssid,password);
 
 
 
- server.on("/",root);
- server.on("/status",status);
- server.on("/threshold",threshold);
+Serial.println("ESP32 Access Point Started");
+
+Serial.print("IP:");
+
+Serial.println(WiFi.softAPIP());
 
 
- server.begin();
+
+server.on("/",root);
+
+server.on("/status",status);
+
+server.on("/threshold",threshold);
+
+server.on("/trim",trimAmount);
 
 
- Serial.println("Web server running");
+
+server.begin();
+
 
 }
 
@@ -313,12 +497,12 @@ void setup()
 
 // ---------- Loop ----------
 
+
 void loop()
 {
 
- server.handleClient();
+server.handleClient();
 
-
- detectGesture();
+detectGesture();
 
 }
