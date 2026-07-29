@@ -4421,16 +4421,6 @@
 		)
 		(uuid "25e79404-1db1-4506-bd77-f3c05020b5b6")
 	)
-	(text "<---"
-		(exclude_from_sim no)
-		(at 80.772 39.116 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "42d303b3-2d7e-49ec-9534-c6238a2a165e")
-	)
 	(text "ESP32-WROOM Development Kit\n"
 		(exclude_from_sim no)
 		(at 81.026 203.962 0)
@@ -4480,16 +4470,6 @@
 			)
 		)
 		(uuid "c1042a08-d9d9-419c-ad96-cc0615c08c5d")
-	)
-	(text "Capacitor for Power Rail Stabilization\n"
-		(exclude_from_sim no)
-		(at 102.616 39.116 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "da29cb03-c517-4753-ae33-8c7f13ab6035")
 	)
 	(text "7/23/2026\n"
 		(exclude_from_sim no)
@@ -5043,16 +5023,6 @@
 	)
 	(wire
 		(pts
-			(xy 261.62 242.57) (xy 261.62 245.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4eda1b3c-be63-43c9-97d4-e5bef351b682")
-	)
-	(wire
-		(pts
 			(xy 236.22 118.11) (xy 284.48 118.11)
 		)
 		(stroke
@@ -5313,6 +5283,16 @@
 	)
 	(wire
 		(pts
+			(xy 64.77 35.56) (xy 64.77 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7d7b7119-ccef-4c6c-93ba-44dd2a280f1f")
+	)
+	(wire
+		(pts
 			(xy 52.07 66.04) (xy 45.72 66.04)
 		)
 		(stroke
@@ -5383,16 +5363,6 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 35.56) (xy 64.77 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "91709db2-6a5d-424b-8b2a-6d488fc54b83")
-	)
-	(wire
-		(pts
 			(xy 337.82 121.92) (xy 341.63 121.92)
 		)
 		(stroke
@@ -5410,16 +5380,6 @@
 			(type default)
 		)
 		(uuid "95372767-18bc-428d-a0e0-205bf3a2aada")
-	)
-	(wire
-		(pts
-			(xy 261.62 232.41) (xy 261.62 234.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "95725565-7d7e-4015-926c-4c8f677dcdbc")
 	)
 	(wire
 		(pts
@@ -5820,16 +5780,6 @@
 			(type default)
 		)
 		(uuid "d8c1debf-c5bd-414c-8324-229d8e330191")
-	)
-	(wire
-		(pts
-			(xy 64.77 41.91) (xy 64.77 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "df9f725a-8c9f-4b95-a4bd-daee7bb57bd2")
 	)
 	(wire
 		(pts
@@ -7003,7 +6953,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 64.77 39.37 180)
+		(at 261.62 234.95 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7012,7 +6962,7 @@
 		(fields_autoplaced yes)
 		(uuid "23f16f9a-3b83-473b-9af4-25e821665f7a")
 		(property "Reference" "C3"
-			(at 67.31 38.0935 0)
+			(at 264.16 233.6735 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7021,7 +6971,7 @@
 			)
 		)
 		(property "Value" "10nF"
-			(at 67.31 40.6335 0)
+			(at 264.16 236.2135 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7030,7 +6980,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 64.77 39.37 0)
+			(at 261.62 234.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7039,7 +6989,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 64.77 39.37 0)
+			(at 261.62 234.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7048,7 +6998,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 64.77 39.37 0)
+			(at 261.62 234.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7206,7 +7156,7 @@
 	)
 	(symbol
 		(lib_id "CustomLibrary:BH23APC")
-		(at 257.81 238.76 270)
+		(at 257.81 241.3 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7215,7 +7165,7 @@
 		(fields_autoplaced yes)
 		(uuid "344d7eb8-273e-4baf-9589-79242c2071c0")
 		(property "Reference" "BATT1"
-			(at 265.43 237.5534 90)
+			(at 265.43 240.0934 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7224,7 +7174,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 265.43 239.4585 90)
+			(at 265.43 241.9985 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7233,7 +7183,7 @@
 			)
 		)
 		(property "Footprint" "CustomLibrary:BH23APC"
-			(at 257.81 238.76 0)
+			(at 257.81 241.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7242,7 +7192,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 257.81 238.76 0)
+			(at 257.81 241.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7251,7 +7201,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 257.81 238.76 0)
+			(at 257.81 241.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7655,7 +7605,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 			(at 278.13 123.19 90)
 			(effects
 				(font
@@ -8160,7 +8110,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 			(at 287.02 118.11 90)
 			(effects
 				(font
@@ -8309,7 +8259,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 			(at 252.73 138.43 90)
 			(effects
 				(font
@@ -8578,7 +8528,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 			(at 246.38 140.97 90)
 			(effects
 				(font
@@ -9368,7 +9318,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 			(at 274.32 125.73 90)
 			(effects
 				(font
@@ -9592,7 +9542,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 			(at 262.89 133.35 90)
 			(effects
 				(font
@@ -9670,7 +9620,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 			(at 257.81 135.89 90)
 			(effects
 				(font
@@ -10439,7 +10389,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 			(at 281.94 120.65 90)
 			(effects
 				(font
@@ -10653,7 +10603,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 			(at 266.7 130.81 90)
 			(effects
 				(font
@@ -11139,7 +11089,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
 			(at 270.51 128.27 90)
 			(effects
 				(font
