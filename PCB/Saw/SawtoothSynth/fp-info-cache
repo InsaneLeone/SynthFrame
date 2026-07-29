@@ -1,4 +1,4 @@
-25702886921864465
+25711814004233771
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -57161,13 +57161,55 @@ Scared Cat
 0
 0
 0
-DIsplay
+CustomLibrary
 1.28___Round_TFT
 
 
 0
 7
 7
+CustomLibrary
+25THV220M8X10.5
+
+25THV220M8X10.5 
+0
+2
+2
+CustomLibrary
+CD4017BM96
+
+CD4017BM96 
+0
+16
+16
+CustomLibrary
+ESP32-WROOM_Devkit
+Footprint for ESP32 WROOM Devkit 30 Pin
+
+0
+30
+28
+CustomLibrary
+LM358DR2G
+
+LM358DR2G 
+0
+8
+8
+CustomLibrary
+LM386MX-1NOPB
+
+LM386MX-1/NOPB 
+0
+8
+8
+CustomLibrary
+TRIM_TC33X-2-103E
+<b>TC33X-2</b><br>
+
+0
+3
+3
 Diode_SMD
 D_0201_0603Metric
 Diode SMD 0201 (0603 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: https://www.vishay.com/docs/20052/crcw0201e3.pdf), generated with kicad-footprint-generator
@@ -67892,13 +67934,6 @@ Yellow 5381 Series LED
 0
 2
 2
-Micro Dev Kits
-ESP32-WROOM_Devkit
-Footprint for ESP32 WROOM Devkit 30 Pin
-
-0
-30
-28
 Module
 A20_OLINUXINO_LIME2
 A20 Olinuxino LIME2, 1.2GHz, 512-1024MB RAM, Micro-SD, NAND or eMMC, 1000Mbit Ethernet
