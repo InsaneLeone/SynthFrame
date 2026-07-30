@@ -1009,6 +1009,196 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "CustomLibrary:1.28{dblquote}_Round_TFT"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "RoundDispTFT"
+				(at 2.286 -21.082 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" ""
+				(at 1.27 -17.78 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "DIsplay:1.28__Round_TFT"
+				(at 1.27 -17.78 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 1.27 -17.78 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 1.27 -17.78 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "1.28{dblquote}_Round_TFT_0_1"
+				(rectangle
+					(start 0 7.62)
+					(end 5.08 -19.05)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "1.28{dblquote}_Round_TFT_1_1"
+				(pin input line
+					(at -2.54 5.08 0)
+					(length 2.54)
+					(name "RST"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -2.54 1.27 0)
+					(length 2.54)
+					(name "CS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -2.54 -2.54 0)
+					(length 2.54)
+					(name "DC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -2.54 -6.35 0)
+					(length 2.54)
+					(name "SDA"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -2.54 -10.16 0)
+					(length 2.54)
+					(name "SCL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -2.54 -13.97 0)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -2.54 -17.78 0)
+					(length 2.54)
+					(name "Vcc"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "CustomLibrary:25THV220M8X10.5"
 			(pin_names
 				(offset 0.254)
@@ -2484,196 +2674,6 @@
 						)
 					)
 					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Display:1.28{dblquote}_Round_TFT"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "RoundDispTFT"
-				(at 2.286 -21.082 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 1.27 -17.78 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "DIsplay:1.28__Round_TFT"
-				(at 1.27 -17.78 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 1.27 -17.78 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 1.27 -17.78 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "1.28{dblquote}_Round_TFT_0_1"
-				(rectangle
-					(start 0 7.62)
-					(end 5.08 -19.05)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "1.28{dblquote}_Round_TFT_1_1"
-				(pin input line
-					(at -2.54 5.08 0)
-					(length 2.54)
-					(name "RST"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -2.54 1.27 0)
-					(length 2.54)
-					(name "CS"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -2.54 -2.54 0)
-					(length 2.54)
-					(name "DC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -2.54 -6.35 0)
-					(length 2.54)
-					(name "SDA"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -2.54 -10.16 0)
-					(length 2.54)
-					(name "SCL"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -2.54 -13.97 0)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -2.54 -17.78 0)
-					(length 2.54)
-					(name "Vcc"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4542,6 +4542,12 @@
 		(uuid "29268e74-8442-4f3b-90a3-5666e99a9e18")
 	)
 	(junction
+		(at 116.84 50.8)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2aae4820-a63c-4131-a387-d867f8b30cec")
+	)
+	(junction
 		(at 93.98 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4558,6 +4564,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3c5b38fd-20c5-45ec-8f12-790860623622")
+	)
+	(junction
+		(at 93.98 41.91)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "438c1a67-3c3a-4b07-a311-4bc4b4976b82")
 	)
 	(junction
 		(at 64.77 93.98)
@@ -4578,10 +4590,10 @@
 		(uuid "6b3367de-19da-49fd-b84e-130d7ce08195")
 	)
 	(junction
-		(at 93.98 44.45)
+		(at 292.1 140.97)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "83b2ec9a-5114-43a5-a71d-714e7ce1be2f")
+		(uuid "6c521ca6-ba15-4b08-81ab-faad766d2993")
 	)
 	(junction
 		(at 292.1 120.65)
@@ -4602,22 +4614,16 @@
 		(uuid "90ec1b0b-0bb7-4fb8-ab84-a30016dc7cc0")
 	)
 	(junction
-		(at 64.77 44.45)
+		(at 64.77 41.91)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "ac1eb091-855d-48e2-a5fc-4adaa408eaad")
+		(uuid "b0fea2ab-5699-40ac-9713-e68ec1929f64")
 	)
 	(junction
 		(at 251.46 49.53)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bd6c1086-ae23-488f-90a2-aa80591a128d")
-	)
-	(junction
-		(at 292.1 140.97)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c7b943cd-dae5-40b1-932f-fb5014abdddd")
 	)
 	(junction
 		(at 292.1 130.81)
@@ -4683,6 +4689,16 @@
 	)
 	(wire
 		(pts
+			(xy 236.22 140.97) (xy 243.84 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "018cef25-9ce2-4955-a951-d39d98851d1d")
+	)
+	(wire
+		(pts
 			(xy 292.1 118.11) (xy 292.1 120.65)
 		)
 		(stroke
@@ -4690,16 +4706,6 @@
 			(type default)
 		)
 		(uuid "020fee48-7632-4ce1-ba40-159892a78f05")
-	)
-	(wire
-		(pts
-			(xy 292.1 140.97) (xy 292.1 144.78)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "04eacd8f-d1c6-4730-adce-0859cdc36e69")
 	)
 	(wire
 		(pts
@@ -4723,7 +4729,7 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 44.45) (xy 116.84 46.99)
+			(xy 116.84 41.91) (xy 116.84 43.18)
 		)
 		(stroke
 			(width 0)
@@ -4740,16 +4746,6 @@
 			(type default)
 		)
 		(uuid "10ebca00-a12e-475c-8422-62c6eda42d9f")
-	)
-	(wire
-		(pts
-			(xy 248.92 140.97) (xy 292.1 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "182ac70a-aef5-4cd5-8677-6ccbdca91377")
 	)
 	(wire
 		(pts
@@ -4913,16 +4909,6 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 45.72) (xy 93.98 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "39f440dd-e8c8-4b27-939e-53c2d31a08a3")
-	)
-	(wire
-		(pts
 			(xy 80.01 260.35) (xy 80.01 264.16)
 		)
 		(stroke
@@ -5033,6 +5019,16 @@
 	)
 	(wire
 		(pts
+			(xy 292.1 140.97) (xy 292.1 144.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "537c06e7-0041-4c25-abc4-ceb95e67710f")
+	)
+	(wire
+		(pts
 			(xy 80.01 264.16) (xy 77.47 264.16)
 		)
 		(stroke
@@ -5113,7 +5109,7 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 54.61) (xy 116.84 60.96)
+			(xy 116.84 50.8) (xy 116.84 60.96)
 		)
 		(stroke
 			(width 0)
@@ -5203,7 +5199,7 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 44.45) (xy 64.77 44.45)
+			(xy 46.99 41.91) (xy 64.77 41.91)
 		)
 		(stroke
 			(width 0)
@@ -5273,7 +5269,7 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 55.88) (xy 64.77 44.45)
+			(xy 64.77 41.91) (xy 64.77 55.88)
 		)
 		(stroke
 			(width 0)
@@ -5283,7 +5279,7 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 35.56) (xy 64.77 44.45)
+			(xy 64.77 35.56) (xy 64.77 41.91)
 		)
 		(stroke
 			(width 0)
@@ -5453,6 +5449,16 @@
 	)
 	(wire
 		(pts
+			(xy 101.6 50.8) (xy 116.84 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ebee8c4-8280-4a6d-9e47-f77e2cf61858")
+	)
+	(wire
+		(pts
 			(xy 330.2 144.78) (xy 341.63 144.78)
 		)
 		(stroke
@@ -5493,16 +5499,6 @@
 	)
 	(wire
 		(pts
-			(xy 236.22 140.97) (xy 243.84 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a4c3083e-66b4-4a1b-9298-6ebb95ee42d8")
-	)
-	(wire
-		(pts
 			(xy 22.86 102.87) (xy 22.86 111.76)
 		)
 		(stroke
@@ -5513,7 +5509,7 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 71.12) (xy 46.99 44.45)
+			(xy 46.99 71.12) (xy 46.99 41.91)
 		)
 		(stroke
 			(width 0)
@@ -5543,7 +5539,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 44.45) (xy 116.84 44.45)
+			(xy 93.98 41.91) (xy 116.84 41.91)
 		)
 		(stroke
 			(width 0)
@@ -5620,6 +5616,16 @@
 			(type default)
 		)
 		(uuid "b3103b12-99ca-42bf-a964-c63a0e481aec")
+	)
+	(wire
+		(pts
+			(xy 248.92 140.97) (xy 292.1 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b3faaca9-0506-4a14-9b17-37e601013f84")
 	)
 	(wire
 		(pts
@@ -5783,6 +5789,16 @@
 	)
 	(wire
 		(pts
+			(xy 93.98 41.91) (xy 93.98 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "debe8368-62bd-4ac8-baf5-bbdd19296b70")
+	)
+	(wire
+		(pts
 			(xy 93.98 71.12) (xy 93.98 73.66)
 		)
 		(stroke
@@ -5903,7 +5919,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 44.45) (xy 64.77 44.45)
+			(xy 93.98 41.91) (xy 64.77 41.91)
 		)
 		(stroke
 			(width 0)
@@ -6465,6 +6481,91 @@
 				(path "/05357223-0530-467e-9944-156f1ca3379c"
 					(reference "U2")
 					(unit 2)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "CustomLibrary:1.28{dblquote}_Round_TFT")
+		(at 344.17 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "14a5eef9-f240-466f-8934-26624dab748d")
+		(property "Reference" "RoundDispTFT1"
+			(at 350.52 132.0799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "~"
+			(at 350.52 133.985 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "CustomLibrary:1.28___Round_TFT"
+			(at 345.44 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 345.44 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 345.44 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "9d275ab3-e13a-4f01-816f-bd5d49caee10")
+		)
+		(pin "6"
+			(uuid "e2f10b3e-0bb2-4c27-9be3-c08b2b75c39f")
+		)
+		(pin "4"
+			(uuid "7a3d4c3e-3c16-4783-93b9-d7c043b48d3b")
+		)
+		(pin "7"
+			(uuid "43f59521-e315-4acd-8bdb-d58a105151f3")
+		)
+		(pin "1"
+			(uuid "87c4c659-1177-4c36-a199-aefc4e3adbf9")
+		)
+		(pin "5"
+			(uuid "9abb9e1f-cd8a-43a4-bb49-bd4743f7018e")
+		)
+		(pin "3"
+			(uuid "50f90622-a0bf-4f48-b61f-aff93248ba2d")
+		)
+		(instances
+			(project ""
+				(path "/05357223-0530-467e-9944-156f1ca3379c"
+					(reference "RoundDispTFT1")
+					(unit 1)
 				)
 			)
 		)
@@ -7923,91 +8024,6 @@
 			(project "SawtoothSynth"
 				(path "/05357223-0530-467e-9944-156f1ca3379c"
 					(reference "#PWR04")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Display:1.28{dblquote}_Round_TFT")
-		(at 344.17 127 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "60fceb84-4487-403b-8c49-7c64c94adbd9")
-		(property "Reference" "RoundDispTFT1"
-			(at 350.52 132.0799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "~"
-			(at 350.52 133.985 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "CustomLibrary:1.28___Round_TFT"
-			(at 345.44 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 345.44 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 345.44 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "5"
-			(uuid "6d9a9945-808e-4a91-94e5-36393b4065e4")
-		)
-		(pin "4"
-			(uuid "c4f89c40-ccc0-478b-a0f7-74c102b0d9de")
-		)
-		(pin "3"
-			(uuid "864e4bef-4e19-4306-be96-3585e5a09594")
-		)
-		(pin "7"
-			(uuid "4fc95ed7-bfc2-46bb-9a98-22e38741c6a3")
-		)
-		(pin "6"
-			(uuid "c9033eb0-b67e-4399-b58b-fd2d79c1cd33")
-		)
-		(pin "2"
-			(uuid "62bd6be1-3005-41f6-81b3-003c29b8581a")
-		)
-		(pin "1"
-			(uuid "c5fd6f4f-f663-4fd3-85b4-bf89f6481eba")
-		)
-		(instances
-			(project ""
-				(path "/05357223-0530-467e-9944-156f1ca3379c"
-					(reference "RoundDispTFT1")
 					(unit 1)
 				)
 			)
@@ -9805,7 +9821,7 @@
 	)
 	(symbol
 		(lib_id "Diode:1N4148W")
-		(at 116.84 50.8 90)
+		(at 116.84 46.99 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9814,7 +9830,7 @@
 		(fields_autoplaced yes)
 		(uuid "b2ca89e7-def3-43b1-b8c2-1409f4342ca2")
 		(property "Reference" "D1"
-			(at 119.38 49.5299 90)
+			(at 119.38 45.7199 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9823,7 +9839,7 @@
 			)
 		)
 		(property "Value" "1N4148W"
-			(at 119.38 52.0699 90)
+			(at 119.38 48.2599 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9832,7 +9848,7 @@
 			)
 		)
 		(property "Footprint" "Diode_SMD:D_SOD-123"
-			(at 121.285 50.8 0)
+			(at 121.285 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9841,7 +9857,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/85748/1n4148w.pdf"
-			(at 116.84 50.8 0)
+			(at 116.84 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9850,7 +9866,7 @@
 			)
 		)
 		(property "Description" "75V 0.15A Fast Switching Diode, SOD-123"
-			(at 116.84 50.8 0)
+			(at 116.84 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9859,7 +9875,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 116.84 50.8 0)
+			(at 116.84 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9868,7 +9884,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 116.84 50.8 0)
+			(at 116.84 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
