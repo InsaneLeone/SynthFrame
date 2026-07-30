@@ -2684,6 +2684,113 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Mechanical:MountingHole_Pad"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "H"
+				(at 0 6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole_Pad"
+				(at 0 4.445 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Mounting Hole with connection"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*Pad*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MountingHole_Pad_0_1"
+				(circle
+					(center 0 1.27)
+					(radius 1.27)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "MountingHole_Pad_1_1"
+				(pin input line
+					(at 0 -2.54 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "PCM_Espressif:ESP32-WROOM_Devkit"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -4401,6 +4508,18 @@
 		)
 		(uuid bcbb9ae7-c358-4468-89c0-e3fb263e4c37)
 	)
+	(rectangle
+		(start 204.47 182.88)
+		(end 255.27 210.82)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid d5cd697d-dc13-4f81-ad4c-8c4335edcc37)
+	)
 	(text "LM358 Rail Supply\n"
 		(exclude_from_sim no)
 		(at 231.394 222.504 0)
@@ -4430,6 +4549,16 @@
 			)
 		)
 		(uuid "4d324f60-52a4-4cdf-bf39-1d9c5f5ff65e")
+	)
+	(text "Glass Mounting Holes"
+		(exclude_from_sim no)
+		(at 231.14 181.61 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "504de6df-11e8-445f-8e5b-d554f1675fb5")
 	)
 	(text "2.8\" TFT Display\n"
 		(exclude_from_sim no)
@@ -5079,6 +5208,16 @@
 	)
 	(wire
 		(pts
+			(xy 210.82 195.58) (xy 210.82 199.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5ccd9f0e-883a-484c-b152-31848593f2dd")
+	)
+	(wire
+		(pts
 			(xy 255.27 138.43) (xy 292.1 138.43)
 		)
 		(stroke
@@ -5229,7 +5368,7 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 232.41) (xy 113.03 232.41)
+			(xy 125.73 232.41) (xy 113.03 232.41)
 		)
 		(stroke
 			(width 0)
@@ -5961,7 +6100,7 @@
 	)
 	(global_label "TOUCH"
 		(shape input)
-		(at 116.84 232.41 0)
+		(at 125.73 232.41 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5971,12 +6110,34 @@
 		)
 		(uuid "17565922-f6e1-48f3-803d-de251856f4b0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 126.0543 232.41 0)
+			(at 134.9443 232.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "TOUCH"
+		(shape output)
+		(at 210.82 199.39 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "2038b6af-3b12-47fe-9e11-b8dc168411fc")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 210.82 208.6043 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -7326,6 +7487,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 246.38 193.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "36c3c62d-4108-4221-8c57-3d653a4ce068")
+		(property "Reference" "MOUNTING3"
+			(at 242.316 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 248.92 193.0399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_4.3mm_M4_Pad_TopBottom"
+			(at 246.38 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 246.38 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 246.38 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ce41494f-993d-48eb-a2b1-b3aa625e023d")
+		)
+		(instances
+			(project "SawtoothSynth"
+				(path "/05357223-0530-467e-9944-156f1ca3379c"
+					(reference "MOUNTING3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GNDREF")
 		(at 322.58 78.74 0)
 		(unit 1)
@@ -7892,6 +8120,73 @@
 			(project ""
 				(path "/05357223-0530-467e-9944-156f1ca3379c"
 					(reference "LS1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 233.68 193.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "55e96b9f-bdbf-4505-817d-9ab17fa3cae2")
+		(property "Reference" "MOUNTING2"
+			(at 229.616 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 236.22 193.0399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_4.3mm_M4_Pad_TopBottom"
+			(at 233.68 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 233.68 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 233.68 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c9f3da47-1567-423a-bf37-c11a26a529cb")
+		)
+		(instances
+			(project "SawtoothSynth"
+				(path "/05357223-0530-467e-9944-156f1ca3379c"
+					(reference "MOUNTING2")
 					(unit 1)
 				)
 			)
@@ -8722,6 +9017,140 @@
 			(project ""
 				(path "/05357223-0530-467e-9944-156f1ca3379c"
 					(reference "#PWR014")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 220.98 193.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "6fc872d8-6d60-4fb4-8299-46f3963540fc")
+		(property "Reference" "MOUNTING1"
+			(at 217.17 188.214 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 223.52 193.0399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_4.3mm_M4_Pad_TopBottom"
+			(at 220.98 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 220.98 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 220.98 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c2e05206-5af7-4afd-bd6b-5273d6fc2ada")
+		)
+		(instances
+			(project "SawtoothSynth"
+				(path "/05357223-0530-467e-9944-156f1ca3379c"
+					(reference "MOUNTING1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 210.82 193.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "736a20fe-3c2d-4a20-bc39-024185734862")
+		(property "Reference" "TOUCH"
+			(at 208.28 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 213.36 193.0399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_4.3mm_M4_Pad_TopBottom"
+			(at 210.82 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 210.82 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 210.82 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "10bc4e18-699b-4bc3-99d5-b9e394e3533b")
+		)
+		(instances
+			(project "SawtoothSynth"
+				(path "/05357223-0530-467e-9944-156f1ca3379c"
+					(reference "TOUCH")
 					(unit 1)
 				)
 			)
