@@ -3578,6 +3578,142 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Switch:SW_SPST"
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at 0 3.175 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SW_SPST"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Single Pole Single Throw (SPST) switch"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "switch lever"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SW_SPST_0_0"
+				(circle
+					(center -2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.524 0.254) (xy 1.524 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SW_SPST_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Timer:NE555D"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -4414,7 +4550,7 @@
 	)
 	(rectangle
 		(start 15.24 26.67)
-		(end 128.27 130.81)
+		(end 132.08 130.81)
 		(stroke
 			(width 0)
 			(type default)
@@ -4486,7 +4622,7 @@
 	)
 	(rectangle
 		(start 252.73 224.79)
-		(end 274.32 252.73)
+		(end 274.32 266.7)
 		(stroke
 			(width 0)
 			(type default)
@@ -5158,6 +5294,16 @@
 	)
 	(wire
 		(pts
+			(xy 261.62 250.19) (xy 261.62 252.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "54bb8032-2d8f-402f-8f14-2fb5ad58a0fe")
+	)
+	(wire
+		(pts
 			(xy 80.01 264.16) (xy 77.47 264.16)
 		)
 		(stroke
@@ -5648,6 +5794,16 @@
 	)
 	(wire
 		(pts
+			(xy 261.62 243.84) (xy 261.62 245.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a64848b0-d000-4418-a0bb-44c652444cae")
+	)
+	(wire
+		(pts
 			(xy 46.99 71.12) (xy 46.99 41.91)
 		)
 		(stroke
@@ -5875,6 +6031,16 @@
 			(type default)
 		)
 		(uuid "c42a8801-1268-43ab-aae0-951e11625627")
+	)
+	(wire
+		(pts
+			(xy 261.62 232.41) (xy 261.62 233.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c4cfb073-90fd-4e50-a7d4-5e6ebea537e6")
 	)
 	(wire
 		(pts
@@ -6733,7 +6899,7 @@
 	)
 	(symbol
 		(lib_id "power:GNDREF")
-		(at 261.62 245.11 0)
+		(at 261.62 260.35 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6742,7 +6908,7 @@
 		(fields_autoplaced yes)
 		(uuid "16d94eb8-1933-493a-ac8f-3333fdd7e184")
 		(property "Reference" "#PWR07"
-			(at 261.62 251.46 0)
+			(at 261.62 266.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6751,7 +6917,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 261.62 250.19 0)
+			(at 261.62 265.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6759,7 +6925,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 261.62 245.11 0)
+			(at 261.62 260.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6768,7 +6934,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 261.62 245.11 0)
+			(at 261.62 260.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6777,7 +6943,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
-			(at 261.62 245.11 0)
+			(at 261.62 260.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7215,7 +7381,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 261.62 234.95 180)
+		(at 261.62 247.65 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7224,7 +7390,7 @@
 		(fields_autoplaced yes)
 		(uuid "23f16f9a-3b83-473b-9af4-25e821665f7a")
 		(property "Reference" "C3"
-			(at 264.16 233.6735 0)
+			(at 264.16 246.3735 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7233,7 +7399,7 @@
 			)
 		)
 		(property "Value" "10nF"
-			(at 264.16 236.2135 0)
+			(at 264.16 248.9135 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7242,7 +7408,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 261.62 234.95 0)
+			(at 261.62 247.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7251,7 +7417,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 261.62 234.95 0)
+			(at 261.62 247.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7260,7 +7426,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 261.62 234.95 0)
+			(at 261.62 247.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7278,6 +7444,76 @@
 			(project "SawtoothSynth"
 				(path "/05357223-0530-467e-9944-156f1ca3379c"
 					(reference "C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_SPST")
+		(at 261.62 238.76 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "288c1dba-e7a7-41d7-853d-3f00efb74706")
+		(property "Reference" "SW1"
+			(at 262.89 237.4899 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "SW_SPST"
+			(at 262.89 240.0299 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "CustomLibrary:SW_SPST_Toggle"
+			(at 261.62 238.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 261.62 238.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Single Pole Single Throw (SPST) switch"
+			(at 261.62 238.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "587e85a2-9768-47b9-bf31-23b3d878d890")
+		)
+		(pin "1"
+			(uuid "75bb2ed3-7f57-4820-aa00-305da7841a8e")
+		)
+		(instances
+			(project ""
+				(path "/05357223-0530-467e-9944-156f1ca3379c"
+					(reference "SW1")
 					(unit 1)
 				)
 			)
@@ -7418,7 +7654,7 @@
 	)
 	(symbol
 		(lib_id "CustomLibrary:BH23APC")
-		(at 257.81 241.3 270)
+		(at 257.81 256.54 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7427,7 +7663,7 @@
 		(fields_autoplaced yes)
 		(uuid "344d7eb8-273e-4baf-9589-79242c2071c0")
 		(property "Reference" "BATT1"
-			(at 265.43 240.0934 90)
+			(at 265.43 255.3334 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7436,7 +7672,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 265.43 241.9985 90)
+			(at 265.43 257.2385 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7445,7 +7681,7 @@
 			)
 		)
 		(property "Footprint" "CustomLibrary:BH23APC"
-			(at 257.81 241.3 0)
+			(at 257.81 256.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7454,7 +7690,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 257.81 241.3 0)
+			(at 257.81 256.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7463,7 +7699,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 257.81 241.3 0)
+			(at 257.81 256.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9098,7 +9334,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "736a20fe-3c2d-4a20-bc39-024185734862")
-		(property "Reference" "TOUCH"
+		(property "Reference" "TOUCH1"
 			(at 208.28 187.96 0)
 			(effects
 				(font
@@ -9150,7 +9386,7 @@
 		(instances
 			(project "SawtoothSynth"
 				(path "/05357223-0530-467e-9944-156f1ca3379c"
-					(reference "TOUCH")
+					(reference "TOUCH1")
 					(unit 1)
 				)
 			)

@@ -4414,7 +4414,7 @@
 	)
 	(rectangle
 		(start 15.24 26.67)
-		(end 132.08 130.81)
+		(end 128.27 130.81)
 		(stroke
 			(width 0)
 			(type default)
@@ -9098,7 +9098,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "736a20fe-3c2d-4a20-bc39-024185734862")
-		(property "Reference" "TOUCH1"
+		(property "Reference" "TOUCH"
 			(at 208.28 187.96 0)
 			(effects
 				(font
@@ -9150,7 +9150,7 @@
 		(instances
 			(project "SawtoothSynth"
 				(path "/05357223-0530-467e-9944-156f1ca3379c"
-					(reference "TOUCH1")
+					(reference "TOUCH")
 					(unit 1)
 				)
 			)
