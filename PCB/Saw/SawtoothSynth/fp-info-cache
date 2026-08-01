@@ -1,4 +1,4 @@
-25720741779989481
+25726098625947760
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -57183,6 +57183,13 @@ CustomLibrary
 7
 7
 CustomLibrary
+2STN1360
+
+2STN1360 
+0
+3
+3
+CustomLibrary
 25THV220M8X10.5
 
 25THV220M8X10.5 
@@ -57191,6 +57198,13 @@ CustomLibrary
 2
 CustomLibrary
 18650PC Battery Holder 1043P
+
+
+0
+2
+2
+CustomLibrary
+865060445005
 
 
 0
@@ -57217,6 +57231,13 @@ Footprint for ESP32 WROOM Devkit 30 Pin
 0
 30
 28
+CustomLibrary
+IND_BOURNS_SRN8040
+
+SRN8040-101M 
+0
+2
+2
 CustomLibrary
 LM358DR2G
 
