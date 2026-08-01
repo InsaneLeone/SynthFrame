@@ -7680,7 +7680,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CustomLibrary:BH23APC"
+		(property "Footprint" "CustomLibrary:18650PC Battery Holder 1043P"
 			(at 257.81 256.54 0)
 			(effects
 				(font
